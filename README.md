@@ -13,17 +13,35 @@ npm install --save react-storages
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import React from 'react'
 
-import MyComponent from 'react-storages'
+import { LocalStorage, withLocalStorage, SessionStorage, withSessionStorage } from 'react-storages'
 
-class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
+const App = withLocalStorage()(props => {
+  setTimeout(() => {
+    // Basically, every 7.5 seconds localStorage will be updated,
+    // causing this withLocalStorage consumer to rerender and stuff.
+
+    localStorage.setItem("foo", props.storage.foo + "r");
+  }, 7500);
+
+  return (
+    <div className="App">
+      <h1>LocalStorage</h1>
+      <h2>foo: {props.storage.foo}</h2>
+    </div>
+  );
+});
+
+const AppContainer = props => {
+  return (
+    <LocalStorage.Provider>
+      <SessionStorage.Provider>
+        <App someProp />
+      </SessionStorage.Provider>
+    </LocalStorage.Provider>
+  );
+};
 ```
 
 ## License

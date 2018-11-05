@@ -1,10 +1,9 @@
-import React from "react";
+import * as React from "react";
 import createContext from "create-react-context";
 import storageUtils from "storage-utilities";
 import storageChanged from "storage-changed";
 
 import addStorageListener from './addStorageListener'
-import mapStorageToProps from './mapStorageToProps'
 import createConsumerHOC from './createConsumerHOC'
 import generateHOCName from './generateHOCName'
 

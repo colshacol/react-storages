@@ -1,6 +1,8 @@
 
+import 'jest-dom/extend-expect'
 import 'react-testing-library/cleanup-after-each'
-import React from 'react'
+import * as React from 'react'
+import * as createContext from 'create-react-context'
 import { render } from 'react-testing-library'
 
 import createConsumerHOC from '../createConsumerHOC'
@@ -12,15 +14,13 @@ beforeEach(() => {
   window.removeEventListener = jest.fn(() => { })
 })
 
-const Consumer = (props) => {
-  return props.children({})
-}
+const context = createContext(null)
 
-const Comp = createConsumerHOC(Consumer)()(props => {
+const Comp = createConsumerHOC(context.Consumer)()(props => {
   return null
 })
 
 test('createConsumerHOC', () => {
-  const { getByText } = render(<div><Comp /></div>)
-  expect(container).toEqual(null)
+   const { container } = render(<Comp />)
+  expect(container).toHaveTextContent('')
 })

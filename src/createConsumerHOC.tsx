@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import { purist } from "@reacting/purist";
 
+import mapStorageToProps from './mapStorageToProps'
 import { DEFAULT_MAPPER } from "./consts";
 
 export default Consumer => (mapper = DEFAULT_MAPPER) => Comp => {

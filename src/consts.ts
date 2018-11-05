@@ -1,4 +1,4 @@
-export const DEFAULT_MAPPER = (storage, props) => {
+export const DEFAULT_MAPPER = (storage) => {
   return {
     storage
   };

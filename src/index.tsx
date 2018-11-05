@@ -7,7 +7,8 @@ import addStorageListener from './addStorageListener'
 import createConsumerHOC from './createConsumerHOC'
 import generateHOCName from './generateHOCName'
 
-class Provider extends React.Component {
+class Provider extends React.Component<any, any> {
+  removeListener: Function
   state = this.props.initialState;
   provider = this.props.context.Provider;
 
@@ -51,7 +52,7 @@ const createStorageContext = which => {
   );
 
   const consumer = context.Consumer;
-  const hoc = createStorageHOC(consumer);
+  const hoc = createConsumerHOC(consumer);
   const hocName = generateHOCName(which);
 
   return {

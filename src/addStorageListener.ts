@@ -1,6 +1,6 @@
 import mems from 'mems'
 
-export default which => {
+export default mems(which => {
   const eventName = `${which}StorageChanged`;
   return handler => {
     window.addEventListener(eventName, handler);
@@ -9,4 +9,4 @@ export default which => {
       window.removeEventListener(eventName, handler);
     };
   };
-}
+})

@@ -8,20 +8,18 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
+    "test": "cross-env CI=1 react-scripts-ts test --env=jsdom --verbose",
     "test:watch": "react-scripts-ts test --env=jsdom",
     "build": "rollup -c",
+    "bili": "bili --input ./src/index.ts --external \"react\"",
     "start": "rollup -c -w"
   },
   "dependencies": {
     "@reacting/purist": "0.1.0",
-    "create-react-context": "0.2.3",
-    "mems": "0.0.21",
+    "get-value": "^3.0.1",
+    "just-curry-it": "^3.1.0",
+    "set-value": "^3.0.0",
     "storage-changed": "2.0.0",
     "storage-utilities": "0.0.2"
   },
@@ -31,26 +29,25 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/runtime": "^7.1.2",
-    "@types/jest": "^23.1.5",
-    "@types/react": "^16.3.13",
-    "@types/react-dom": "^16.0.5",
+    "@babel/core": "^7.1.5",
+    "@babel/runtime": "^7.1.5",
+    "@types/jest": "^23.3.9",
+    "@types/react": "^16.7.3",
+    "@types/react-dom": "^16.0.9",
+    "bili": "^3.4.2",
     "cross-env": "^5.1.4",
-    "gh-pages": "^1.2.0",
-    "jest-dom": "^2.1.0",
-    "react": "^15.6.2",
-    "react-dom": "^15.6.2",
-    "react-scripts-ts": "^3.1.0",
+    "jest-dom": "^2.1.1",
+    "jest-localstorage-mock": "^2.3.0",
+    "react-scripts-ts": "^4.0.8",
     "react-testing-library": "^5.2.3",
-    "rollup": "^0.62.0",
-    "rollup-plugin-babel": "^3.0.7",
-    "rollup-plugin-commonjs": "^9.1.3",
-    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup": "^0.67.1",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-typescript2": "^0.13.0",
-    "rollup-plugin-url": "^1.4.0",
-    "typescript": "^3.0.0"
+    "rollup-plugin-typescript2": "^0.18.0",
+    "rollup-plugin-url": "^2.0.1",
+    "typescript": "^3.1.6"
   },
   "files": [
     "dist"

@@ -12,21 +12,23 @@ export default {
     {
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true
+      sourcemap: true,
     },
     {
       file: pkg.module,
       format: 'es',
-      sourcemap: true
-    }
+      sourcemap: true,
+    },
   ],
+  externals: ['react'],
+
   plugins: [
     external(),
     url(),
     resolve(),
     typescript({
-      rollupCommonJSResolveHack: true
+      rollupCommonJSResolveHack: true,
     }),
-    commonjs()
-  ]
+    commonjs(),
+  ],
 }
